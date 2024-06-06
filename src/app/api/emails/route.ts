@@ -24,7 +24,7 @@ export async function GET(req: NextApiRequest) {
     const response = await gmail.users.messages.list({
       userId: 'me',
       q: 'from:twitter.com',
-      maxResults: 25,
+      maxResults: 2,
     });
 
     const messages = response.data.messages || [];
