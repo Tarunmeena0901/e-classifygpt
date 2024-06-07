@@ -9,7 +9,7 @@ const openai = new OpenAI({
 
 export async function classifyEmails(emails : EMAIL[]) {
 
-  const categorizedEmails: CATEGORIZED_EMAILS = { important: [], general: [] };
+  const categorizedEmails: CATEGORIZED_EMAILS = [];
 
   await Promise.all(
     emails.map(async (email: EMAIL) => {
@@ -28,9 +28,9 @@ export async function classifyEmails(emails : EMAIL[]) {
       const decision = response.choices[0].message.content;
 
       if (decision === "important") {
-        categorizedEmails.important.push({subject: email.subject, from: email.from, important: true} );
+        categorizedEmails.push({subject: email.subject, from: email.from, important: true} );
       } else {
-        categorizedEmails.general.push({subject: email.subject, from: email.from, important: false});
+        categorizedEmails.push({subject: email.subject, from: email.from, important: false});
       }
     })
   );

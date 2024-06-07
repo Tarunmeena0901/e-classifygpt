@@ -24,7 +24,7 @@ export async function GET(req: NextApiRequest) {
     const response = await gmail.users.messages.list({
       userId: 'me',
       q: 'from:twitter.com',
-      maxResults: 2,
+      maxResults: 50,
     });
 
     const messages = response.data.messages || [];
@@ -37,10 +37,22 @@ export async function GET(req: NextApiRequest) {
         });
         const headers = msg.data.payload.headers;
         const subjectHeader = headers.find(header => header.name === 'Subject');
+        const fromHeader = headers.find(header => header.name === 'From');
         const subject = subjectHeader ? subjectHeader.value : 'No Subject';
-        return { id: message.id, subject };
+        let from = 'Unknown Sender';
+  
+        // Extract sender's email from the "From" header
+        if (fromHeader) {
+          const match = fromHeader.value.match(/<(.+?)>/);
+          if (match) {
+            from = match[1];
+          }
+        }
+  
+        return { id: message.id, subject, from };
       })
     );
+  
 
     return NextResponse.json({ emailDetails }, { status: 200 });
   } catch (error) {
