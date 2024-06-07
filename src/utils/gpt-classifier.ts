@@ -9,7 +9,7 @@ if(typeof window !== 'undefined'){
 }
 
 const openai = new OpenAI({
-  apiKey: savedApiKey ?? process.env.NEXT_PUBLIC_OPENAI_KEY,
+  apiKey: savedApiKey ?? process.env.NEXT_PUBLIC_OPENAI_KEY ?? "",
   dangerouslyAllowBrowser: true
 });
 
