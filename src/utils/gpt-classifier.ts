@@ -3,7 +3,6 @@ import OpenAI from "openai";
 import { CATEGORIZED_EMAILS, EMAIL } from "@/app/components/type";
 
 const savedApiKey = localStorage.getItem('OPENAI_KEY');
-console.log(savedApiKey);
 
 const openai = new OpenAI({
   apiKey: savedApiKey ?? process.env.NEXT_PUBLIC_OPENAI_KEY,
