@@ -12,6 +12,7 @@ export const NEXT_AUTH  = {
           },
         })
       ],
+      secret: process.env.NEXTAUTH_SECRET,
       callbacks: {
         async redirect({ url, baseUrl } : {url: string , baseUrl: string}) {
           // Redirect to /home after login and / after logout
