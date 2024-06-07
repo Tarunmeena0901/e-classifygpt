@@ -1,7 +1,9 @@
 "use client";
 import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export function UserCard({ session }: { session: any }) {
+    const router = useRouter();
     return (
         <div className="border-2 border-slate-400 h-[25vh] p-2 flex rounded-full bg-black">
             <div className="w-[10vh] flex justify-center items-center">
@@ -20,7 +22,7 @@ export function UserCard({ session }: { session: any }) {
                 <div>
                     <button
                         className="bg-gradient-to-r mr-3 border-2 border-slate-500 from-slate-500 to-slate-800 text-white h-[5vh] w-[20vh] rounded-full hover:border-black hover:scale-105 transition ease-in-out"
-                        onClick={() => signOut()}
+                        onClick={() => signOut().then(() => router.push("/"))}
                     >
                         Log Out
                     </button>

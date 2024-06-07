@@ -46,7 +46,7 @@ export default function Home() {
   if (!session) {
     return (
       <div className=' h-screen flex justify-center mt-10 p-10'>
-        <div className="border-2 bg-slate-300 h-[30vh] w-[70vh] flex flex-col justify-center items-center gap-4 rounded">
+        <div className="border-2 bg-rose-500 h-[30vh] w-[70vh] flex flex-col justify-center items-center gap-4 rounded">
           <div className='font-spaceMono text-white'>
             please login using your google account
           </div>
