@@ -1,11 +1,11 @@
 import { google } from 'googleapis';
-import { NextApiRequest} from 'next';
-import { NextResponse } from 'next/server';
+
+import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { NEXT_AUTH } from '@/app/config/auth';
 
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: NextRequest) {
   const session = await getServerSession(NEXT_AUTH);
 
   if (!session) {

@@ -2,7 +2,11 @@
 import OpenAI from "openai";
 import { CATEGORIZED_EMAILS, EMAIL } from "@/app/type";
 
-const savedApiKey = localStorage.getItem('OPENAI_KEY');
+let savedApiKey;
+
+if(typeof window !== 'undefined'){
+  savedApiKey = localStorage.getItem('OPENAI_KEY');
+}
 
 const openai = new OpenAI({
   apiKey: savedApiKey ?? process.env.NEXT_PUBLIC_OPENAI_KEY,
@@ -19,7 +23,7 @@ export async function classifyEmails(emails : EMAIL[]) {
         messages: [
           {
             role: "user",
-            content: `remember any career related or money related emails are important and rest all is not , judging from the subject line is this email important or not? \n ${email.subject} \n giver answer as important or not important only  `,
+            content: ` judging from the subject line is this email important or not? \n ${email.subject} \n giver answer as important , promotion , social , marketing , spam or general if none are matched, give answer from these options only  `,
           },
         ],
         model: "gpt-3.5-turbo",
@@ -29,11 +33,8 @@ export async function classifyEmails(emails : EMAIL[]) {
       });
       const decision = response.choices[0].message.content;
 
-      if (decision === "important") {
-        categorizedEmails.push({subject: email.subject, from: email.from, important: true} );
-      } else {
-        categorizedEmails.push({subject: email.subject, from: email.from, important: false});
-      }
+      categorizedEmails.push({subject: email.subject, from: email.from, classification: decision} );
+
     })
   );
 

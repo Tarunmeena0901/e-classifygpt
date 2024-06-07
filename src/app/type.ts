@@ -6,7 +6,7 @@
 export type CATEGORIZED_EMAILS = {
   subject: string,
   from: string,
-  important: boolean
+  classification: string
 }[];
 
 export type EMAIL = {

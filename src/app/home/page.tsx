@@ -14,7 +14,7 @@ export default function Home() {
   const [filterValue, setFilterValue] = useState<number>(50);
 
   const filteredEmails: EMAIL[] = emails.slice(0, filterValue);
-
+  
   const handleClassification = async (filteredEmails: EMAIL[]) => {
     const classificationResult = await classifyEmails(filteredEmails);
     setCategorizedEmails(classificationResult);

@@ -4,11 +4,11 @@ import { easeInOut, motion } from "framer-motion";
 export function EmailCard({
     from,
     subject,
-    important,
+    classification,
 }: {
     from: string;
     subject: string;
-    important: string;
+    classification: string;
 }) {
     const [visible, setVisible] = useState<boolean>(false);
     const closeModal = () => setVisible(false);
@@ -36,7 +36,7 @@ export function EmailCard({
                                 {from}
                             </div>
                             <div className={`text-xl text-white font-semibold`}>
-                                {important}
+                                {classification}
                             </div>
                         </div>
                         <div className="text-l text-white font-medium">
@@ -87,8 +87,8 @@ export function EmailCard({
                     <div className="font-spaceMono font-semibold">
                         {from}
                     </div>
-                    <div className={important === "Important" ? "font-semibold text-green-500" : "font-semibold text-red-500"}>
-                        {important}
+                    <div className= "font-semibold text-green-800">
+                        {classification}
                     </div>
                 </div>
                 <div className="flex items-center">
