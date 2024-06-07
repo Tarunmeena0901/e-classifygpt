@@ -59,13 +59,13 @@ export default function Home() {
   }
 
   return (
-    <div className=' h-screen flex flex-col items-center  bg-white p-5 gap-5'>
+    <div className=' h-screen flex flex-col items-center m-3 bg-white gap-5'>
         <UserCard session={session}/>
       <div className='flex justify-between w-[100vh]'>
         <div className='flex items-center gap-2'>
           <h4 className='font-semibold'>Filter :</h4>
           <input
-            className=' text-center bg-black rounded text-white w-[10vh]'
+            className=' text-center bg-black rounded text-white w-[10vh] border-2 border-slate-300'
             type='number'
             placeholder='filter'
             step="1"
@@ -81,7 +81,7 @@ export default function Home() {
         </div>
         <div>
           <button
-            className="bg-gradient-to-r from-slate-500 to-slate-800 text-white font-semibold mt-2 h-[5vh] w-[15vh] rounded"
+            className="bg-gradient-to-r from-slate-500 to-slate-800 text-white font-semibold mt-2 h-[5vh] w-[15vh] rounded hover:border-black hover:scale-105 transition ease-in-out"
             onClick={() => handleClassification(filteredEmails)}
           >
             Classify

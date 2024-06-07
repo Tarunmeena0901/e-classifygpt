@@ -6,7 +6,7 @@ export function UserCard({ session }: { session: any }) {
         <div className="border-2 border-slate-400 h-[25vh] p-2 flex rounded-full bg-black">
             <div className="w-[10vh] flex justify-center items-center">
                 <img
-                    className="object-cover w-[8vh] h-[8vh] bg-clip rounded-full"
+                    className="object-cover w-[8vh] h-[8vh] bg-clip rounded-full border-2 border-slate-500"
                     src={session.user?.image || ""}
                 />
             </div>
@@ -19,7 +19,7 @@ export function UserCard({ session }: { session: any }) {
                 </div>
                 <div>
                     <button
-                        className="bg-gradient-to-r mr-3 from-slate-500 to-slate-800 text-white h-[5vh] w-[20vh] rounded-full"
+                        className="bg-gradient-to-r mr-3 border-2 border-slate-500 from-slate-500 to-slate-800 text-white h-[5vh] w-[20vh] rounded-full hover:border-black hover:scale-105 transition ease-in-out"
                         onClick={() => signOut()}
                     >
                         Log Out

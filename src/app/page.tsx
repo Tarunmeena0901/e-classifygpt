@@ -55,13 +55,13 @@ export default function Home() {
                 </div>
                 <div className="mt-6 flex justify-center items-center gap-4 ">
                   <button
-                    className="bg-gradient-to-r from-slate-500 to-slate-800 text-white h-[5vh] w-[20vh] rounded"
+                    className="bg-gradient-to-r from-slate-500 to-slate-800 text-white h-[5vh] w-[20vh] rounded hover:border-black hover:scale-105 transition ease-in-out"
                     onClick={() => router.push("/home")}
                   >
                     Go to home
                   </button>
                   <button
-                    className="bg-gradient-to-r from-slate-500 to-slate-800 text-white h-[5vh] w-[20vh] rounded"
+                    className="bg-gradient-to-r from-slate-500 to-slate-800 text-white h-[5vh] w-[20vh] rounded hover:border-black hover:scale-105 transition ease-in-out"
                     onClick={() => signOut()}
                   >
                     Log Out
