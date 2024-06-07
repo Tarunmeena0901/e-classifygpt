@@ -50,7 +50,7 @@ export default function Home() {
                 <div className="flex gap-2 mt-2">
                 <input type="text" placeholder="Enter Your OpenAi API Key"
                   onChange={(e) => setUserKey(e.target.value)}
-                  className="w-[30vh] h-[5vh] border-slate-600 border-2 rounded text-center" />
+                  className="w-[30vh] h-[5vh] border-slate-300 border-2 rounded text-center" />
                 <button className="w-[5vh] h-[5vh] bg-slate-200 rounded" onClick={handleSubmit}>➕</button>
                 </div>
                 <div className="mt-6 flex justify-center items-center gap-4 ">
@@ -89,10 +89,4 @@ export default function Home() {
       </div>
     </div>
   );
-}
-
-{
-  /* <h1>Welcome, {session?.user?.name}</h1>
-      <button onClick={() => signOut()}>Sign out</button>
-      <button onClick={() => router.push("/home")}>go to home</button> */
 }
