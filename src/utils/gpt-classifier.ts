@@ -7,16 +7,7 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true
 });
 
-export async function classifyEmails() {
-
-  const response = await fetch("/api/emails");
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch emails");
-  }
-
-  const data = await response.json();
-  const emails: EMAIL[] = data.emailDetails || [];
+export async function classifyEmails(emails : EMAIL[]) {
 
   const categorizedEmails: CATEGORIZED_EMAILS = { important: [], general: [] };
 
@@ -37,9 +28,9 @@ export async function classifyEmails() {
       const decision = response.choices[0].message.content;
 
       if (decision === "important") {
-        categorizedEmails.important.push(email.subject || "");
+        categorizedEmails.important.push({subject: email.subject, from: email.from, important: true} );
       } else {
-        categorizedEmails.general.push(email.subject || "");
+        categorizedEmails.general.push({subject: email.subject, from: email.from, important: false});
       }
     })
   );
