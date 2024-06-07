@@ -19,12 +19,10 @@ export function EmailCard({
             {visible && (
                 <motion.div
                     initial={{
-                        opacity: 0, // Initial opacity set to 0
-                        // // Initial position outside the viewport from the right
+                        opacity: 0, 
                     }}
                     animate={{
-                        opacity: 1, // Opacity animate to 1 to fade in
-                        // Animate the div to move to x: 0 position, i.e., visible
+                        opacity: 1, 
                     }}
                     transition={{
                         duration: 0.2,

@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { classifyEmails } from '@/utils/gpt-classifier';
-import { CATEGORIZED_EMAILS, EMAIL } from '../components/type';
+import { CATEGORIZED_EMAILS, EMAIL } from '../type';
 import { UserCard } from '../components/userCard';
 import { EmailContainer } from '../components/emailContainer';
 

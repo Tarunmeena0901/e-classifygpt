@@ -1,5 +1,5 @@
 import { google } from 'googleapis';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest} from 'next';
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { NEXT_AUTH } from '@/app/config/auth';

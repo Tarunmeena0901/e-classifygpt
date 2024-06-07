@@ -1,6 +1,6 @@
 
 import OpenAI from "openai";
-import { CATEGORIZED_EMAILS, EMAIL } from "@/app/components/type";
+import { CATEGORIZED_EMAILS, EMAIL } from "@/app/type";
 
 const savedApiKey = localStorage.getItem('OPENAI_KEY');
 
