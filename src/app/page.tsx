@@ -64,7 +64,7 @@ export default function Home() {
                 </div>
                 <button
                   className="bg-gradient-to-r from-slate-500 to-slate-800 text-white mt-2 h-[5vh] w-[20vh] rounded"
-                  onClick={() => signIn()}
+                  onClick={() => signIn("google")}
                 >
                   Login
                 </button>
