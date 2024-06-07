@@ -1,0 +1,19 @@
+name: Set OpenAI API Key
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  set-env:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set OpenAI API Key
+      env:
+        NEXT_PUBLIC_OPENAI_KEY: ${{ secrets.NEXT_PUBLIC_OPENAI_KEY }}
+      run: echo "Setting OpenAI API Key"
