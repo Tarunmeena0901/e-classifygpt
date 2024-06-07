@@ -6,8 +6,16 @@ import { useState } from "react";
 
 export default function Home() {
   const { data: session } = useSession();
-  const [userKey, setUserKey] = useState<string | null>(null)
+  const [userKey, setUserKey] = useState<string | "">("")
   const router = useRouter();
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('OPENAI_KEY', userKey);
+    }
+    alert('API Key saved!');
+  };
 
   const divs = Array.from({ length: 72 }, (_, i) => (
     <div
@@ -24,7 +32,7 @@ export default function Home() {
       <div className="grid grid-cols-12  w-full h-full">
         {divs}
         <div className="absolute inset-0 flex items-center justify-center z-10">
-          <div className="flex flex-col items-center justify-center  bg-slate-100 w-[70vh] rounded p-5">
+          <div className="flex flex-col items-center justify-center  bg-slate-100 w-[70vh] rounded p-5  ">
             <div className="font-spaceMono text-6xl font-bold text-transparent bg-gradient-to-r from-slate-500 to-slate-800 bg-clip-text">
               ClassifyGPT
             </div>
@@ -39,9 +47,12 @@ export default function Home() {
                 <div className="font-semibold">
                   Welcome, {session?.user?.name}
                 </div>
-                <input type="text" placeholder="ENTER YOUR OPENAI API KEY"
+                <div className="flex gap-2 mt-2">
+                <input type="text" placeholder="Enter Your OpenAi API Key"
                   onChange={(e) => setUserKey(e.target.value)}
-                  className="w-[30vh] h-[5vh] mt-2 border-slate-600 border-2 rounded"></input>
+                  className="w-[30vh] h-[5vh] border-slate-600 border-2 rounded text-center" />
+                <button className="w-[5vh] h-[5vh] bg-slate-200 rounded" onClick={handleSubmit}>➕</button>
+                </div>
                 <div className="mt-6 flex justify-center items-center gap-4 ">
                   <button
                     className="bg-gradient-to-r from-slate-500 to-slate-800 text-white h-[5vh] w-[20vh] rounded"
@@ -55,6 +66,9 @@ export default function Home() {
                   >
                     Log Out
                   </button>
+                </div>
+                <div className="absolute flex flex-wrap p-4 bg-white bottom-40 font-semibold font-spaceMono text-center text-l z-10">
+                  🟢 If you  dont have OpenAi api key you are free to use mine for now you will only be able to leverage gpt-3.5-turbo with my key. Have fun 💖
                 </div>
               </div>
             ) : (
