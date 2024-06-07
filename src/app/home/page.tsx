@@ -46,7 +46,7 @@ export default function Home() {
   if (!session) {
     return (
       <div className=' h-screen flex justify-center mt-10 p-10'>
-        <div className="border-2 bg-rose-600 h-[30vh] w-[70vh] flex flex-col justify-center items-center gap-4 rounded">
+        <div className="border-2 bg-slate-300 h-[30vh] w-[70vh] flex flex-col justify-center items-center gap-4 rounded">
           <div className='font-spaceMono text-white'>
             please login using your google account
           </div>
@@ -59,7 +59,7 @@ export default function Home() {
   }
 
   return (
-    <div className=' h-screen flex flex-col items-center  p-10 gap-5'>
+    <div className=' h-screen flex flex-col items-center  bg-white p-5 gap-5'>
         <UserCard session={session}/>
       <div className='flex justify-between w-[100vh]'>
         <div className='flex items-center gap-2'>
