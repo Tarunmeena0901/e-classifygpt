@@ -1,6 +1,6 @@
 # e-classifygpt ✨🚀
 
-![alt text](image-1.png)
+![alt text](./public/image-1.png)
 
 the website use next-auth for authentication with google as the provider , for fetching gmail we are using google gmail api , and the email classification done using gpt-4o model additionaly the website have framer-motino as a dependecy to add some smooth transition and animation 
 
@@ -30,7 +30,7 @@ cd e-classifygpt
 - rename it to .env.local
 - fill your secrets
 
-![alt text](image.png)
+![alt text](./public/image.png)
 
 4. **Run your project localy**
 ```bash
