@@ -1,4 +1,4 @@
-# e-classifygpt
+# e-classifygpt ✨🚀
 
 ![alt text](image-1.png)
 
