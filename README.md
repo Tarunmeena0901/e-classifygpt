@@ -45,6 +45,6 @@ cd e-classifygpt
 Your Next.js application should now be running locally at http://localhost:3000.
 
 Additional Resources
-[Next.js Documentation](https://nextjs.org/docs)
-[Google Cloud Documentation](https://cloud.google.com/api-keys/docs/overview)
-[OpenAI API Documentation](https://beta.openai.com/docs/)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Google Cloud Documentation](https://cloud.google.com/api-keys/docs/overview)
+- [OpenAI API Documentation](https://beta.openai.com/docs/)
