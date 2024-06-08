@@ -9,6 +9,7 @@ export default function Home() {
   const [userKey, setUserKey] = useState<string | "">("")
   const router = useRouter();
 
+  //storing the api key from the user in the local storage
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (typeof window !== 'undefined') {
