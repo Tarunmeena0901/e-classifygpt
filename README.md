@@ -22,7 +22,8 @@ git clone https://github.com/Tarunmeena0901/e-classifygpt.git
 ```
 
 2. **Install dependencies:**
-cd e-classifygpt
+cd e-classifygpt  
+
 `npm install` or `yarn install`
 
 3. **setup your secrets and env varaible**
