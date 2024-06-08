@@ -20,10 +20,10 @@ export function EmailContainer({
             
             {loading ? <SkeletonLoader/> : <ul>
                 {categorizedEmails ? categorizedEmails.map((email, id) => (
-                    <EmailCard key={id} from={email.from} subject={email.subject} classification={email.classification} />
+                    <EmailCard key={id} from={email.from} subject={email.subject} classification={email.classification} body={email.body} />
                 )) :
                     filteredEmails.map((email, id) => (
-                        <EmailCard key={id} from={email.from} subject={email.subject} classification={""} />
+                        <EmailCard key={id} from={email.from} subject={email.subject} classification={""} body={email.body} />
                     ))}
             </ul>}
         </div>

@@ -23,17 +23,25 @@ export async function classifyEmails(emails : EMAIL[]) {
         messages: [
           {
             role: "user",
-            content: ` judging from the subject line is this email important or not? \n ${email.subject} \n giver answer as "important" , "promotion" , "social" , "marketing" , "spam" or "general" if none are matched, give one word answer from these options only  `,
+            content: ` judging from the subject line and the body of this email, classify this email \n \n ${email.subject} \n \n ${email.body} \n \n give answer labeled as \n \n 
+             " important : Emails that are personal or work-related and require immediate attention." , \n \n
+             " promotion : Emails related to sales, discounts, and marketing campaigns." , \n \n
+             " social : Emails from social networks, friends, and family." , \n \n 
+             " marketing : Emails related to marketing, newsletters, and notifications." , \n \n 
+             " spam :  Unwanted or unsolicited emails. " or \n \n 
+             " general : If none of the above are matched, use General" \n \n
+              give one word (important, promotion, social, marketing ,spam or general) answer from these options only and ignore the dash lines in the body `,
           },
         ],
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o", //"gpt-3.5-turbo"
         max_tokens: 1,
         temperature: 1,
         stop: ["\n"],
       });
       const decision = response.choices[0].message.content;
+      console.log(decision);
 
-      categorizedEmails.push({subject: email.subject, from: email.from, classification: decision} );
+      categorizedEmails.push({subject: email.subject, from: email.from, classification: decision || "", body: email.body} );
 
     })
   );

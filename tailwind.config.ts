@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const plugin = require('tailwindcss/plugin')
 
 const config: Config = {
   content: [
@@ -13,6 +14,15 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [plugin(function ({ addUtilities } : {addUtilities : any}) {
+    addUtilities({
+      '.scrollbar-hide': {
+        '&::-webkit-scrollbar': {
+          display: 'none'
+        }
+      }
+    }
+    )
+  })],
 };
 export default config;

@@ -1,14 +1,19 @@
 import { useState } from "react";
-import { easeInOut, motion } from "framer-motion";
+import {  motion } from "framer-motion";
 
 export function EmailCard({
     from,
     subject,
     classification,
+    body
 }: {
     from: string;
     subject: string;
     classification: string;
+    body:  {
+        text : string,
+        html : string
+    }
 }) {
     const [visible, setVisible] = useState<boolean>(false);
     const closeModal = () => setVisible(false);
@@ -28,9 +33,9 @@ export function EmailCard({
                         duration: 0.2,
                         ease:"linear"
                     }}
-                    className="absolute rigt-0 right-0 w-[80vh] origin-right bg-white/10 backdrop-blur inset-y-0 z-10 bg-black bg-opacity-10 flex items-center justify-center"
+                    className="absolute rigt-0 right-0 w-[110vh] origin-right bg-white/10 backdrop-blur inset-y-0 z-10 bg-black bg-opacity-10 flex items-center justify-center"
                 >
-                    <div className="bg-black h-[50vh] p-5 flex flex-col gap-4">
+                    <div className="bg-black h-[90vh] p-5 flex flex-col gap-4 ">
                         <div className="flex justify-between ">
                             <div className="text-xl text-white font-semibold">
                                 {from}
@@ -42,8 +47,9 @@ export function EmailCard({
                         <div className="text-l text-white font-medium">
                             Subject: {subject}
                         </div>
-                        <div className="text-l text-white font-medium h-[15vh]">
-                            high emily we are please to say offer you a loan amount of 100K USD if you want to accept give a misscall on this number 960XXX23XX
+                        <div className="text-l  text-white bg-slate-800 font-medium h-[60vh] w-[100vh] overflow-scroll scrollbar-hide border-2 border-slate-700 rounded p-2"  >
+                            <div className="p-5" dangerouslySetInnerHTML={{__html:body.html}}></div>
+                            <pre className="flex felx-wrap">{body.text}</pre>
                         </div>
                         <div className="text-l text-white font-medium flex flex-col">
                             <span>Best</span>

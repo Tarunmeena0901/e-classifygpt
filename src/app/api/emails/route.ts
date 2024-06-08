@@ -3,7 +3,28 @@ import { google } from 'googleapis';
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { NEXT_AUTH } from '@/app/config/auth';
+import { formatEmail, separateHTMLandText } from './emailFormater';
 
+
+function getBody(payload : any) {
+  let body = '';
+
+  if (payload.parts) {
+    payload.parts.forEach((part) => {
+      if (part.mimeType === 'text/plain' && part.body && part.body.data) {
+        body += Buffer.from(part.body.data, 'base64').toString('utf-8');
+      } else if (part.mimeType === 'text/html' && part.body && part.body.data) {
+        body += Buffer.from(part.body.data, 'base64').toString('utf-8');
+      } else if (part.parts) {
+        body += getBody(part); // recursively handle nested parts
+      }
+    });
+  } else if (payload.body && payload.body.data) {
+    body = Buffer.from(payload.body.data, 'base64').toString('utf-8');
+  }
+
+  return body;
+}
 
 export async function GET(req: NextRequest) {
   const session = await getServerSession(NEXT_AUTH);
@@ -23,7 +44,7 @@ export async function GET(req: NextRequest) {
 
     const response = await gmail.users.messages.list({
       userId: 'me',
-      q: 'from:twitter.com',
+      q: 'from:(twitter.com OR x.com)',
       maxResults: 50,
     });
 
@@ -48,8 +69,13 @@ export async function GET(req: NextRequest) {
             from = match[1];
           }
         }
+
+        const body = getBody(msg.data.payload);
+        const {text , html} = separateHTMLandText(body);
+        const formatedText = formatEmail(text);
+
   
-        return { id: message.id, subject, from };
+        return { id: message.id, subject, from , body: {text: formatedText , html } };
       })
     );
   
