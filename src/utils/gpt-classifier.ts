@@ -13,6 +13,9 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true
 });
 
+// classifyEmails passes the email fetched using Gmail api to openAi model
+// for the classification for each of them
+
 export async function classifyEmails(emails : EMAIL[]) {
 
   const categorizedEmails: CATEGORIZED_EMAILS = [];
@@ -33,7 +36,7 @@ export async function classifyEmails(emails : EMAIL[]) {
               give one word (important, promotion, social, marketing ,spam or general) answer from these options only and ignore the dash lines in the body `,
           },
         ],
-        model: "gpt-4o", //"gpt-3.5-turbo"
+        model: "gpt-4o", //" or gpt-3.5-turbo"
         max_tokens: 1,
         temperature: 1,
         stop: ["\n"],

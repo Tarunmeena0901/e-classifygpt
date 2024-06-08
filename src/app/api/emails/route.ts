@@ -5,8 +5,10 @@ import { getServerSession } from 'next-auth';
 import { NEXT_AUTH } from '@/app/config/auth';
 import { formatEmail, separateHTMLandText } from './emailFormater';
 
+// getBody function extract the body of emails , we are using a separate function here because
+//email body can be of different time plain text or html
+function getBody(payload: any) {
 
-function getBody(payload : any) {
   let body = '';
 
   if (payload.parts) {
@@ -61,7 +63,7 @@ export async function GET(req: NextRequest) {
         const fromHeader = headers.find(header => header.name === 'From');
         const subject = subjectHeader ? subjectHeader.value : 'No Subject';
         let from = 'Unknown Sender';
-  
+
         // Extract sender's email from the "From" header
         if (fromHeader) {
           const match = fromHeader.value.match(/<(.+?)>/);
@@ -71,14 +73,14 @@ export async function GET(req: NextRequest) {
         }
 
         const body = getBody(msg.data.payload);
-        const {text , html} = separateHTMLandText(body);
+        const { text, html } = separateHTMLandText(body);
         const formatedText = formatEmail(text);
 
-  
-        return { id: message.id, subject, from , body: {text: formatedText , html } };
+
+        return { id: message.id, subject, from, body: { text: formatedText, html } };
       })
     );
-  
+
 
     return NextResponse.json({ emailDetails }, { status: 200 });
   } catch (error) {

@@ -21,7 +21,8 @@ export function EmailCard({
 
     return (
         <div>
-            {visible && (
+            
+            {visible && ( //side email viewer code starts here , as i didnt wanted to make separate components to avoid rerenders
                 <motion.div
                     initial={{
                         opacity: 0, 
@@ -67,6 +68,7 @@ export function EmailCard({
                         </button>
                     </div>
                 </motion.div>
+                //side email viewer ends here
             )}
             <motion.div className="flex flex-col cursor-pointer gap-2 border-2 bg-white rounded border-slate-200 mt-4 h-[15vh] p-2 hover:border-black hover:scale-105 "
                 onClick={openModal}
