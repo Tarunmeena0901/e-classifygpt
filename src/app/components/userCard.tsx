@@ -22,7 +22,7 @@ export function UserCard({ session }: { session: any }) {
                 <div>
                     <button
                         className="bg-gradient-to-r mr-3 border-2 border-slate-500 from-slate-500 to-slate-800 text-white h-[5vh] w-[20vh] rounded-full hover:border-black hover:scale-105 transition ease-in-out"
-                        onClick={() => signOut().then(() => router.push("/"))}
+                        onClick={() => signOut().then(() => router.push("/")).then(() => localStorage.removeItem("OPENAI_KEY"))}
                     >
                         Log Out
                     </button>
