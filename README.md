@@ -22,9 +22,12 @@ git clone https://github.com/Tarunmeena0901/e-classifygpt.git
 ```
 
 2. **Install dependencies:**
+
+```bash
 cd e-classifygpt  
 
 `npm install` or `yarn install`
+```
 
 3. **setup your secrets and env varaible**
 - first copy the .env.local.example
