@@ -42,7 +42,6 @@ export async function classifyEmails(emails : EMAIL[]) {
         stop: ["\n"],
       });
       const decision = response.choices[0].message.content;
-      console.log(decision);
 
       categorizedEmails.push({subject: email.subject, from: email.from, classification: decision || "", body: email.body} );
 

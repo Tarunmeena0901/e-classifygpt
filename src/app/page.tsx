@@ -62,7 +62,7 @@ export default function Home() {
                   </button>
                   <button
                     className="bg-gradient-to-r from-slate-500 to-slate-800 text-white h-[5vh] w-[20vh] rounded hover:border-black hover:scale-105 transition ease-in-out"
-                    onClick={() => signOut()}
+                    onClick={() => signOut().then(() => localStorage.removeItem("OPENAI_KEY"))}
                   >
                     Log Out
                   </button>
