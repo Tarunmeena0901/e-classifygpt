@@ -50,7 +50,7 @@ export function EmailCard({
                         </div>
                         <div className="text-l  text-white bg-slate-800 font-medium h-[60vh] w-[100vh] overflow-scroll scrollbar-hide border-2 border-slate-700 rounded p-2"  >
                             <div className="p-5" dangerouslySetInnerHTML={{__html:body.html}}></div>
-                            <pre className="flex felx-wrap">{body.text}</pre>
+                            <pre className="flex flex-wrap">{body.text}</pre>
                         </div>
                         <div className="text-l text-white font-medium flex flex-col">
                             <span>Best</span>
