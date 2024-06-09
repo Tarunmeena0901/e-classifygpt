@@ -33,7 +33,7 @@ export default function Home() {
       <div className="grid grid-cols-12  w-full h-full">
         {divs}
         <div className="absolute inset-0 flex items-center justify-center z-10">
-          <div className="flex flex-col items-center justify-center  bg-slate-100 w-[70vh] rounded p-5  ">
+          <div className="flex flex-col items-center justify-center rounded  bg-slate-100 border-2 border-slate-100 w-[70vh] rounded p-5  ">
             <div className="font-spaceMono text-6xl font-bold text-transparent bg-gradient-to-r from-slate-500 to-slate-800 bg-clip-text">
               ClassifyGPT
             </div>
@@ -68,7 +68,7 @@ export default function Home() {
                     Log Out
                   </button>
                 </div>
-                <div className="absolute flex flex-wrap p-4 bg-white bottom-40 font-semibold font-spaceMono text-center text-l z-10">
+                <div className="absolute flex flex-wrap p-4 bg-black text-white rounded-full bottom-10 font-semibold font-spaceMono text-center text-l z-10">
                   🟢 If you  dont have OpenAi api key you are free to use mine, just go to home page. Have fun 💖
                 </div>
               </div>
