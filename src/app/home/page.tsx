@@ -70,7 +70,7 @@ export default function Home() {
             placeholder='filter'
             step="1"
             max="50"
-            min="1"
+            min="15"
             value={filterValue}
             onChange={(e) => {
               const value = e.target.value;
@@ -94,49 +94,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-// if (!session) {
-//   return (
-//     <div>
-//       <h1>You are not signed in</h1>
-//       <button onClick={() => signIn('google')}>Sign in with Google</button>
-//     </div>
-//   );
-// }
-
-// if (loading) {
-//   return <div>Loading...</div>;
-// }
-
-
-{/* <h1>Welcome, {session?.user?.name}</h1>
-<input
-  type='number'
-  placeholder='filter'
-  step="1"
-  value={filterValue}
-  onChange={(e) => {
-    const value = e.target.value;
-    setFilterValue(value ? parseInt(value, 10) : 50);
-  }}
-/>
-<button onClick={() => signOut()}>Sign out</button>
-<h2><b>Your Important Emails:</b></h2>
-<ul>
-  {categorizedEmails ? categorizedEmails.important.map((email, id) => (
-    <li key={id}>{email.subject}</li>
-  )) :
-    filteredEmails.map((email, id) => (
-      <li key={id}>{email.subject}</li>
-    ))}
-</ul>
-<h2><b>Your General Emails: </b></h2>
-<ul>
-  {categorizedEmails ? categorizedEmails.general.map((email, id) => (
-    <li key={id}>{email.subject}</li>
-  )) :
-    filteredEmails.map((email, id) => (
-      <li key={id}>{email.subject}</li>
-    ))}
-</ul> */}
