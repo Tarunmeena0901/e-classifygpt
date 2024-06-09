@@ -20,3 +20,13 @@ export function formatEmail(content: string) {
         .replace(/(\r\n|\r|\n)/g, '\n')  // Normalize line breaks
         .replace(/(.{8,})/g, '$1\n'); // Add line break if line exceeds 8 characters
 }
+
+export function stripHTMLAndCSS(text) {
+    // Remove HTML tags
+    text = text.replace(/<\/?[^>]+(>|$)/g, "");
+    // Remove CSS (style tags and inline styles)
+    text = text.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "");
+    text = text.replace(/<[^>]+style="[^"]*"[^>]*>/gi, "");
+
+    return text;
+}

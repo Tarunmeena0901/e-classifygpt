@@ -3,7 +3,7 @@ import { google } from 'googleapis';
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { NEXT_AUTH } from '@/app/config/auth';
-import { formatEmail, separateHTMLandText } from './emailFormater';
+import { formatEmail, separateHTMLandText, stripHTMLAndCSS } from './emailFormater';
 
 // getBody function extract the body of emails , we are using a separate function here because
 //email body can be of different time plain text or html
@@ -75,9 +75,10 @@ export async function GET(req: NextRequest) {
         const body = getBody(msg.data.payload);
         const { text, html } = separateHTMLandText(body);
         const formatedText = formatEmail(text);
+        const sanitizedText = stripHTMLAndCSS(formatedText);
 
 
-        return { id: message.id, subject, from, body: { text: formatedText, html } };
+        return { id: message.id, subject, from, body: { text: sanitizedText, html } };
       })
     );
 
