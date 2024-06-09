@@ -68,7 +68,7 @@ export default function Home() {
                     Log Out
                   </button>
                 </div>
-                <div className="absolute flex flex-wrap p-4 bg-black text-white rounded-full bottom-10 font-semibold font-spaceMono text-center text-l z-10">
+                <div className="absolute flex flex-wrap p-4 bg-slate-800 text-white rounded-full bottom-10 font-semibold font-spaceMono text-center text-l z-10">
                   🟢 If you  dont have OpenAi api key you are free to use mine, just go to home page. Have fun 💖
                 </div>
               </div>
