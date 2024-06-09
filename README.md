@@ -2,7 +2,9 @@
 
 ![alt text](./public/image-1.png)
 
-the website use next-auth for authentication with google as the provider , for fetching gmail we are using google gmail api , and the email classification done using gpt-4o model additionaly the website have framer-motino as a dependecy to add some smooth transition and animation 
+🔴 website  is still not ready for mobile
+
+The website use next-auth for authentication with google as the provider , for fetching gmail we are using google gmail api , and the email classification done using gpt-4o model additionaly the website have framer-motino as a dependecy to add some smooth transition and animation 
 
 ## Prerequisites
 
