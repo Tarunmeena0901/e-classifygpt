@@ -69,8 +69,8 @@ export default function Home() {
             type='number'
             placeholder='filter'
             step="1"
-            max="50"
-            min="15"
+            max="25"
+            min="10"
             value={filterValue}
             onChange={(e) => {
               const value = e.target.value;
