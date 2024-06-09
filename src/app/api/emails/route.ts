@@ -3,30 +3,9 @@ import { google } from 'googleapis';
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { NEXT_AUTH } from '@/app/config/auth';
-import { formatEmail, separateHTMLandText, stripHTMLAndCSS } from './emailFormater';
+import { formatEmail, getBody, separateHTMLandText, stripHTMLAndCSS } from './emailFormaters';
 
-// getBody function extract the body of emails , we are using a separate function here because
-//email body can be of different time plain text or html
-function getBody(payload: any) {
 
-  let body = '';
-
-  if (payload.parts) {
-    payload.parts.forEach((part) => {
-      if (part.mimeType === 'text/plain' && part.body && part.body.data) {
-        body += Buffer.from(part.body.data, 'base64').toString('utf-8');
-      } else if (part.mimeType === 'text/html' && part.body && part.body.data) {
-        body += Buffer.from(part.body.data, 'base64').toString('utf-8');
-      } else if (part.parts) {
-        body += getBody(part); // recursively handle nested parts
-      }
-    });
-  } else if (payload.body && payload.body.data) {
-    body = Buffer.from(payload.body.data, 'base64').toString('utf-8');
-  }
-
-  return body;
-}
 
 export async function GET(req: NextRequest) {
   const session = await getServerSession(NEXT_AUTH);
