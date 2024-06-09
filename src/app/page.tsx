@@ -69,7 +69,7 @@ export default function Home() {
                   </button>
                 </div>
                 <div className="absolute flex flex-wrap p-4 bg-white bottom-40 font-semibold font-spaceMono text-center text-l z-10">
-                  🟢 If you  dont have OpenAi api key you are free to use mine. Have fun 💖
+                  🟢 If you  dont have OpenAi api key you are free to use mine, just go to home page. Have fun 💖
                 </div>
               </div>
             ) : (
