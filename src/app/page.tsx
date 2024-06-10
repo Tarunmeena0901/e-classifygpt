@@ -18,6 +18,8 @@ export default function Home() {
     alert('API Key saved!');
   };
 
+
+  // generates grid background of landing page
   const divs = Array.from({ length: 72 }, (_, i) => (
     <div
       key={i}
